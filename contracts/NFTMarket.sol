@@ -12,8 +12,12 @@ contract NFTMarket is ReentrancyGuard{
     Counters.Counter private _itemIds;
     Counters.Counter private _itemsSold;
 
+    //owner of the nft ,market contract. He will make a commision on every item sold. 
+    //you can program all types of diferent ways in which different parties get paid
+    //one good way is to charge a listing fee, anyone who uploads a contract pays a listing fee t0
+    //the owner of the contract so the owner of the contarct gets paid in commision on everyone else's transaction
     address payable owner;
-    uint256 listingPrice=0.025 ether;
+    uint256 listingPrice=0.0025 ether;
     constructor() {
         owner=payable(msg.sender);
     }

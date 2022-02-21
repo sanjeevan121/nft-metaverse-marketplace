@@ -1,4 +1,4 @@
-/* .container {
+ .container {
   padding: 0 2rem;
 }
 
@@ -107,10 +107,13 @@
   height: 1em;
   margin-left: 0.5rem;
 }
-
+.nft-image {
+  height: 200px;
+  width: 100%;
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-} */
+} 
