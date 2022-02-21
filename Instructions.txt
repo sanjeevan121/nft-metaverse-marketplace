@@ -1,0 +1,92 @@
+
+1)npx create-next-app nft-market
+2) cd nft-market
+
+3)base dependencies
+yarn add ethers hardhat @nomadiclabs/hardhat-waffle ethereum-waffle chai @nomadiclabs/hardhat-ethers web3modal @openzeppelin/contracts ipfs-http-client@50.1.2 axios 
+
+4) tailwid css dependencies
+yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+5) npx tailwind init -p
+
+6) code .
+
+7)in styles/global.css, remove everything and pass the following imports-
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+8) in tailwind.config.js in the home directory ,paste the following code from tailwind docs,
+
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+9) You need to initailize the solidity development environment, In thsi project we will use hardhat. So enter the following command in cmd
+- npx hardhat
+next you need to setup the project boilerplate
+-choose "create a sample project"
+- keep the project root at the root that we are in i.e. inside nft-market
+- choose 'y' for adding .gitignore
+
+Step 9) creates 3 important files- Greeter.sol,hardhat.config.js and sample-test.js
+
+
+10) Configure the hardhat.config.js file 
+
+- current code is the latest version without infura.io 
+
+
+11) installing metamask wallet
+
+
+12) writing solidity code
+create a file- contracts/NFT.sol
+create a file- contracts/NFTMarket.sol
+
+13) Start editing NFT.sol
+-current code is up to date
+
+14) Start coding NFTMarket.sol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
