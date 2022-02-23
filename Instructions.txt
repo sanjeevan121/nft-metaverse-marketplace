@@ -57,6 +57,7 @@ create a file- contracts/NFTMarket.sol
 -current code is up to date
 
 14) Start coding NFTMarket.sol
+-current code is up to date
 
 
 
