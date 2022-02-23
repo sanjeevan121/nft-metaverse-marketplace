@@ -51,12 +51,11 @@ Step 9) creates 3 important files- Greeter.sol,hardhat.config.js and sample-test
 
 12) writing solidity code
 create a file- contracts/NFT.sol
-create a file- contracts/NFTMarket.sol
-
-13) Start editing NFT.sol
+Start editing NFT.sol
 -current code is up to date
 
-14) Start coding NFTMarket.sol
+13)create a file- contracts/NFTMarket.sol
+Start coding NFTMarket.sol
 -current code is up to date
 
 
