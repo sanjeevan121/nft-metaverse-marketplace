@@ -22,7 +22,7 @@ contract NFTMarket is ReentrancyGuard{
         owner=payable(msg.sender);
     }
 
-    struct MarketItem {
+    struct Marketitem {
         uint itemId;
         address nftContract;
         uint256 tokenId;
@@ -41,7 +41,7 @@ contract NFTMarket is ReentrancyGuard{
     //Mappings are mostly used to associate the unique
     //Ethereum address with the associated value type.
     
-    mapping(uint256 => MarketItem) private idToMarketItem;
+    mapping(uint256 => Marketitem) private idToMarketItem;
 
 
 
@@ -96,7 +96,7 @@ contract NFTMarket is ReentrancyGuard{
        _itemIds.increment();
        uint256 itemId= _itemIds.current();
 
-       idToMarketItem[itemId] = MarketItem(
+       idToMarketItem[itemId] = Marketitem(
            itemId,
            nftContract,
            tokenId,
@@ -167,16 +167,16 @@ contract NFTMarket is ReentrancyGuard{
     //this functions return an array of all nfts that can be bought- so that means
     //total nfts minus nfts sold
     //we will use this function on the home page of nft marketplace
-    function fetchMarketItems() public view returns (MarketItem[] memory){
+    function fetchMarketItems() public view returns (Marketitem[] memory){
         uint itemCount = _itemIds.current();
         uint unsoldItemCount= _itemIds.current() - _itemsSold.current();
         uint currentIndex=0;
 
-        MarketItem[] memory items = new MarketItem[](unsoldItemCount);
+        Marketitem[] memory items = new Marketitem[](unsoldItemCount);
         for(uint i=0; i< itemCount;i++){
             if(idToMarketItem[i+1].owner==address(0)){
                 uint currentId=idToMarketItem[i+1].itemId;
-                MarketItem storage currentItem=idToMarketItem[currentId];
+                Marketitem storage currentItem=idToMarketItem[currentId];
                 items[currentIndex]=currentItem;
                 currentIndex+=1;
             }
@@ -186,7 +186,7 @@ contract NFTMarket is ReentrancyGuard{
     }
 
     //fetch the nfts that you own
-    function fetchMyNFTs() public view returns (MarketItem[] memory){
+    function fetchMyNFTs() public view returns (Marketitem[] memory){
         uint totalItemCount=_itemIds.current();
         uint itemCount=0;
         uint currentIndex=0;
@@ -198,12 +198,12 @@ contract NFTMarket is ReentrancyGuard{
                 
                 }
         }
-            MarketItem[] memory items=new MarketItem[](itemCount);
+            Marketitem[] memory items=new Marketitem[](itemCount);
             for(uint i=0;i<totalItemCount;i++)
             {
                 if(idToMarketItem[i+1].owner==msg.sender){
                     uint currentId=i+1;
-                    MarketItem storage currentItem = idToMarketItem[currentId];
+                    Marketitem storage currentItem = idToMarketItem[currentId];
                     items[currentIndex]=currentItem;
                     currentIndex+=1;
 
@@ -215,7 +215,7 @@ contract NFTMarket is ReentrancyGuard{
     
 
     //fetch the nfts that you have created
-    function fetchItemsCreated() public view returns (MarketItem[] memory){
+    function fetchItemsCreated() public view returns (Marketitem[] memory){
 
         uint totalItemCount = _itemIds.current();
         uint itemCount=0;
@@ -227,11 +227,11 @@ contract NFTMarket is ReentrancyGuard{
 
             }
         }
-        MarketItem[] memory items = new MarketItem[](itemCount);
+        Marketitem[] memory items = new Marketitem[](itemCount);
         for(uint i=0;i< totalItemCount; i++){
             if(idToMarketItem[i+1].seller==msg.sender){
                 uint currentId=i+1;
-                MarketItem storage currentItem= idToMarketItem[currentId];
+                Marketitem storage currentItem= idToMarketItem[currentId];
                 items[currentIndex]=currentItem;
                 currentIndex+=1;
 
