@@ -17,7 +17,7 @@ contract NFTMarket is ReentrancyGuard{
     //one good way is to charge a listing fee, anyone who uploads a contract pays a listing fee to
     //the owner of the contract so the owner of the contarct gets paid in commision on everyone else's transaction
     address payable owner;
-    uint256 listingPrice=0.0025 ether;
+    uint256 listingPrice=0.001 ether;
     constructor() {
         owner=payable(msg.sender);
     }
