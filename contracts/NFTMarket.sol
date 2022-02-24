@@ -138,6 +138,11 @@ contract NFTMarket is ReentrancyGuard{
     function createMarketSale(
         address nftContract,
         uint256 itemId
+
+        //we dont need to pass the price since the price has been updated in 
+        //the state of the smart contract on blockchain when we created the 
+        //nft in the previous function i.e function createMarketItem
+        
     )   public payable nonReentrant {
         uint price = idToMarketItem[itemId].price;
         uint tokenId=idToMarketItem[itemId].tokenId;
