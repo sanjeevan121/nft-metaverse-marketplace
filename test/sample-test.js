@@ -14,7 +14,7 @@ describe("NFTMarket", function ()
         const nft = await NFT.deploy(marketAddress)
 
         await nft.deployed()
-
+//xxxxxxxx
         const nftContractAddress = nft.address
 
         let listingPrice= await market.getListingPrice()
@@ -31,7 +31,7 @@ describe("NFTMarket", function ()
        
         await market.connect(buyerAddress).createMarketSale(nftContractAddress, 1, 
             { value : sellingPrice})
-
+//xxxxxxxx
         let items = await market.fetchMarketitems()
         items=await Promise.all(items.map(async i => {
 
