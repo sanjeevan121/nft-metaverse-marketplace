@@ -4,8 +4,10 @@ import Link from 'next/link'
 function Marketplace({ Component, pageProps }) {
   return (
     <div>
-     
+     //border bottom and padding 6
       <nav className="border-b p-6">
+
+        //text size is set to 4 xl font is bold 
         <p className="text-4xl font-bold flex justify-center">NFT Marketplace</p>
         <div className="flex justify-center p-8">
           <Link href="/">
