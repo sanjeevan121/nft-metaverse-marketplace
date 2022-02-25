@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const { promises } = require("stream");
 describe("NFTMarket", function ()
 {
-    it("Should create and execute NFT market sales", async function(){
+    it("Deploy the smart contracts on blockchain, mint new NFTs, sell a NFT and make transactions on blockchain", async function(){
         const Market = await ethers.getContractFactory("NFTMarket")
         const market = await Market.deploy()
 
