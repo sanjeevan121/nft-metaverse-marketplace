@@ -20,20 +20,21 @@ describe("NFTMarket", function ()
         let listingPrice= await market.getListingPrice()
         listingPrice = listingPrice.toString()
 
-        const auctionPrice = ethers.utils.parseUnits('100','ether')
+        const sellingPrice = ethers.utils.parseUnits('100','ether')
         await nft.createToken("https://www.randomurl1.com")
         await nft.createToken("https://www.randomurl2.com")
 
-        await market.createMarketItem(nftContractAddress , 1 , auctionPrice , { value: listingPrice})
-        await market.createMarketItem(nftContractAddress , 2 , auctionPrice , { value: listingPrice})
+        await market.createMarketItem(nftContractAddress , 1 , sellingPrice , { value: listingPrice})
+        await market.createMarketItem(nftContractAddress , 2 , sellingPrice , { value: listingPrice})
         
         const [_, buyerAddress]= await ethers.getSigners()
        
         await market.connect(buyerAddress).createMarketSale(nftContractAddress, 1, 
-            { value : auctionPrice})
+            { value : sellingPrice})
 
         let items = await market.fetchMarketitems()
         items=await Promise.all(items.map(async i => {
+
             const tokenURI =await nft.tokenURI(i.tokenId)
             let item ={
                 price: i.price.toString(),
