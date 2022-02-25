@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { promises } = require("stream");
+
 describe("NFTMarket", function ()
 {
     it("Deploy the smart contracts on blockchain, mint new NFTs, sell a NFT and make transactions on blockchain", async function(){
