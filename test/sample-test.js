@@ -32,7 +32,7 @@ describe("NFTMarket", function ()
         await market.connect(buyerAddress).createMarketSale(nftContractAddress, 1, 
             { value : auctionPrice})
 
-        let items = await market.fetchMarketItems()
+        let items = await market.fetchMarketitems()
         items=await Promise.all(items.map(async i => {
             const tokenURI =await nft.tokenURI(i.tokenId)
             let item ={
